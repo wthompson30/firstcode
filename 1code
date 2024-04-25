@@ -1,0 +1,13 @@
+itch_speed = pitch()
+            print("Pitch speed:", pitch_speed)
+            if pitch_speed < 20:  
+                print("Very Slow Pitch! You hit the ball far!")
+                if pitch_speed < 40 and pitch_speed > 20:
+                  print("Slow pitch! But this pitch speed threw you off, Strike!")
+                if pitch_speed < 50 and pitch_speed > 40:
+            
+                  if pitch_speed < 60 and pitch_speed > 50:
+                    print("Knuckleball! Better luck next time!")
+                    if pitch_speed < 60 and pitch_speed > 110:
+                      print( " Slurveball! Nice hit!")
+                
