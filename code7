@@ -1,0 +1,79 @@
+import random
+
+def pitch():
+    return random.randint(50, 110)
+
+def at_bat():
+    strikes = 0
+    balls = 0
+    while strikes < 3 and balls < 4:
+        print("Would you like to swing or not? (S/N)")
+        choice = input().upper()
+        if choice == 'S':
+            pitch_speed = pitch()
+            print("Pitch speed:", pitch_speed)
+
+            if pitch_speed <= 50:  
+                print("Very Slow Pitch! You hit the ball far!")
+                return True
+            elif 50 <= pitch_speed <= 60:
+                print("Slow pitch! But this pitch speed threw you off, Strike!")
+                strikes += 1
+            elif 60 <= pitch_speed <= 65:
+                print("Changeup! You hit the ball far!")
+                return True
+            elif 66 <= pitch_speed <= 75:
+                print("Knuckleball! Better luck next time!")
+                strikes += 1
+            elif 76 <= pitch_speed <= 79:
+                print("Slurveball! Nice hit!")
+                return True
+            elif 80 <= pitch_speed <= 85:
+                print("4 seam fastball, right down the middle. Nice Hit!")
+                return True
+            elif 86 <= pitch_speed <= 90:
+                print("4 seam fastball. Strike!")
+                strikes += 1
+            elif 91 <= pitch_speed <= 95:
+                print("2 seam fastball. Right down the middle! Nice hit!" )
+                return True
+            elif 96 <= pitch_speed <= 101:
+                print("Fast Forkball. Better luck next time buddy!")
+                strikes += 1
+            elif 101 <= pitch_speed <= 103:
+                print("Rocketball! But somehow you got ahold of the ball. Amazing job!")
+                return True
+            elif 104 <= pitch_speed <= 110:
+                print("Rocketball! You had no chance of hitting this. Better luck next time pal!")
+                strikes += 1
+        elif choice == 'N':
+            print("You chose not to swing")
+            balls += 1
+        else:
+            print("Please enter 'S' to swing or 'N' to not swing!")
+
+    print("Strikeout! You're out!")
+    return False
+
+def play_game():
+    print("Welcome to Python Baseball!")
+    total_strikes = 0
+    inning = 1
+    outs = 0
+    score = 0
+    while inning <= 9:
+        print("Inning", inning)
+        while outs < 3:
+            print("You're up to bat. Outs:", outs, "Score:", score)
+            result = at_bat()
+            if result:
+                total_strikes = 0  # Reset strikes for a successful hit
+                score += 1  # Increment score for a successful hit
+            else:
+                outs += 1
+        inning += 1
+        outs = 0
+        print("Inning over. Next inning.")
+    print("Game over. Your final score:", score)
+
+play_game()
