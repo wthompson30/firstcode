@@ -1,0 +1,25 @@
+import random
+
+def pitch():
+    pitches = ["fastball", "curveball", "slider", "changeup"]
+    return random.choice(pitches)
+
+def pitching():
+    print("You are pitching now")
+    print("Type in fastball, curveball, slider, changeup to choose your pitch")
+    
+    outs = 0
+    computer_score = 0
+    
+    while True:
+        user_pitch = input("Enter your pitch: ").lower()
+        
+        if user_pitch == "quit":
+            print("Thanks for playing!")
+            break
+        
+
+
+        if outs == 3:
+            print("Three outs! Your inning is over.")
+            break
